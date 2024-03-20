@@ -23,8 +23,16 @@ public class PostAPIBookings {
         bookingDates.put("checkout", "2021-07-01");
         requestBody.put("additionalneeds", "Breakfast");
         RestAssured.given().contentType(ContentType.JSON)
-                .baseUri("https://restful-booker.herokuapp.com").body(requestBody.toJSONString()).when().post("/booking").
-                then().assertThat().statusCode(200).statusLine("HTTP/1.1 200 OK").extract().response();
+                .baseUri("https://restful-booker.herokuapp.com").body(requestBody.toJSONString()).
+                log().body().
+                when().post("/booking").
+                then().assertThat().statusCode(200).body("booking.firstname", org.hamcrest.Matchers.equalTo("Jim")).
+                body("booking.lastname", org.hamcrest.Matchers.equalTo("Brown")).
+                body("booking.totalprice", org.hamcrest.Matchers.equalTo(111)).
+                body("booking.depositpaid", org.hamcrest.Matchers.equalTo(true)).
+                body("booking.bookingdates.checkin", org.hamcrest.Matchers.equalTo("2021-07-01")).
+                body("booking.bookingdates.checkout", org.hamcrest.Matchers.equalTo("2021-07-01")).
+                body("booking.additionalneeds", org.hamcrest.Matchers.equalTo("Breakfast"));
 
     }
 }
