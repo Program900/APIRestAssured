@@ -87,18 +87,11 @@ public class PostAPIBookings {
                 then().assertThat().
                 log().body().
                 statusCode(200)
-//                body("booking.firstname", org.hamcrest.Matchers.equalTo("Jim")).
-//                body("booking.lastname", org.hamcrest.Matchers.equalTo("Brown")).
-//                body("booking.totalprice", org.hamcrest.Matchers.equalTo(111)).
-//                body("booking.depositpaid", org.hamcrest.Matchers.equalTo(true)).
-//                body("booking.bookingdates.checkin", org.hamcrest.Matchers.equalTo("2021-07-01")).
-//                body("booking.bookingdates.checkout", org.hamcrest.Matchers.equalTo("2021-07-01")).
-//                body("booking.additionalneeds", org.hamcrest.Matchers.equalTo("Breakfast"));
-
                 .extract().response();
         System.out.println(response.getBody().asString());
         int bookingId = response.jsonPath().get("bookingid");
         System.out.println("Booking id is: "+bookingId);
+
         RestAssured.given().contentType(ContentType.JSON)
                 .baseUri("https://restful-booker.herokuapp.com").when().get("/booking/"+bookingId).
                 then().assertThat().statusCode(200).
@@ -108,7 +101,7 @@ public class PostAPIBookings {
                 .body("depositpaid", Matchers.equalTo(true))
                 .body("bookingdates.checkin", Matchers.equalTo("2021-07-01"))
                 .body("bookingdates.checkout", Matchers.equalTo("2021-07-01"))
-                .body("additionalneeds", Matchers.equalTo("Breakfast"));   ;
+                .body("additionalneeds", Matchers.equalTo("Breakfast"));
 
 
     }
