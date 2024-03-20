@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 public class getBookings {
     @Test
-    void geAlltBookings(){
+    void geAllBookings(){
         System.out.println("Get all bookings");
         Response response = RestAssured.given().contentType(ContentType.JSON)
                 .baseUri("https://restful-booker.herokuapp.com").when().get("/booking").
