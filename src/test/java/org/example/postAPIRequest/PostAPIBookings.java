@@ -89,6 +89,7 @@ public class PostAPIBookings {
                 statusCode(200)
                 .extract().response();
         System.out.println(response.getBody().asString());
+
         int bookingId = response.jsonPath().get("bookingid");
         System.out.println("Booking id is: "+bookingId);
 
