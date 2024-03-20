@@ -1,4 +1,4 @@
-package org.example.GetAllBookings;
+package org.example.getAPIRequest;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
@@ -6,7 +6,7 @@ import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class getBookings {
+public class getAPIBookings {
     @Test
     void geAllBookings(){
         System.out.println("Get all bookings");
