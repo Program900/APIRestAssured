@@ -81,7 +81,7 @@ public class PutAPIRequest {
        //print the response body
        System.out.println(tokenAPIresponse.getBody().asString());
        //print the token
-       System.out.println(tokenAPIresponse.path("token"));
+     //  System.out.println(tokenAPIresponse.path("token"));
        //store the token in a string
        String token = tokenAPIresponse.path("token");
 

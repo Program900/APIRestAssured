@@ -74,7 +74,7 @@ public class PatchAPIRequest {
 
             String token = JsonPath.read(tokenAPIResponse.body().asString(), "$.token");
 
-            //put api call
+            //patch api call
             RestAssured
                     .given()
                     .contentType(ContentType.JSON)
