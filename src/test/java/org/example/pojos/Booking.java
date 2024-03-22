@@ -10,6 +10,9 @@ public class Booking {
     private String additionalneeds;
 
     //Create a constructor  //
+    public Booking() {
+        // set the values of the fields
+    }
     public Booking(String firstname, String lastname, int totalprice, boolean depositpaid, BookingDates bookingdates, String additionalneeds) {
         // set the values of the fields
         setAdditionalneeds(additionalneeds);

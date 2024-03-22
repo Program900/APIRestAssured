@@ -6,6 +6,9 @@ public class BookingDates {
         private String checkout;
 
         //Create a constructor  //
+        public BookingDates() {
+            // set the values of the fields
+        }
         public BookingDates(String checkin, String checkout) {
             // set the values of the fields
             setCheckin(checkin);

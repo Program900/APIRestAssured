@@ -28,8 +28,15 @@ public class PostAPIRequestUsingPojos {
             
             //Deserialization - JSON to Java Object - convert the JSON string to a booking object
             Booking booking1 = objectMapper.readValue(requestBody, Booking.class);
-            //print the booking object
-            System.out.println(booking1);
+            //print the booking firstname
+            System.out.println(booking1.getFirstname());
+            //print the booking totalprice
+            System.out.println(booking1.getTotalprice());
+            //print the booking checkin date
+            System.out.println(booking1.getBookingdates().getCheckin());
+            //print the booking checkout date
+            System.out.println(booking1.getBookingdates().getCheckout());
+
         } catch (Exception e) {
             e.printStackTrace();
         }
