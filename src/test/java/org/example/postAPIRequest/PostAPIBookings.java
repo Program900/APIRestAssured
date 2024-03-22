@@ -103,7 +103,7 @@ public class PostAPIBookings {
                 .body("bookingdates.checkin", Matchers.equalTo("2021-07-01"))
                 .body("bookingdates.checkout", Matchers.equalTo("2021-07-01"))
                 .body("additionalneeds", Matchers.equalTo("Breakfast"));
-
-
     }
+
+
 }

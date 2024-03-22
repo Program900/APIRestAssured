@@ -6,22 +6,21 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import net.minidev.json.JSONArray;
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.FilenameUtils;
 import org.testng.annotations.Test;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
-import static org.example.utils.fileConstants.*;
+import static org.example.utils.FileNameConstants.*;
 
 public class PostAPIRequestUsingFile {
     @Test //post api using file
     void postAPIUsingFile() throws IOException {
 
-//read File to string using FileUtils   //
+     //read File to string using FileUtils   //
    //   FileUtils.readFileToString(new File(BASE_PATH), StandardCharsets.UTF_8);
-        File file = new File(BASE_PATH);
+        File file = new File(TEST_DATA_JSON);
         String postAPIRequestBody = FileUtils.readFileToString(file, StandardCharsets.UTF_8);
         System.out.println(postAPIRequestBody);
         RestAssured.given().contentType(ContentType.JSON).baseUri(BASE_URI).body(postAPIRequestBody).log().all().
@@ -59,9 +58,6 @@ public class PostAPIRequestUsingFile {
         //Assert the additionalneeds
         String additionalneeds = jsonPath.get("booking.additionalneeds");
         System.out.println("additionalneeds is: " + additionalneeds);
-
-
-
 
     }
 }
